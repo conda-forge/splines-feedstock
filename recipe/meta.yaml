@@ -1,5 +1,5 @@
 {% set name = "splines" %}
-{% set version = "0.3.2" %}
+{% set version = "0.3.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/splines-{{ version }}.tar.gz
-  sha256: 89258b3b08c8f7f3bf79f4147920bb4c11c2f334e4c69cb9b79cd9a61c32fcc5
+  sha256: 9d9108303f0f3b0e1be8e014c4a724c674a6c0558ab101e14dd04c74505c4eb9
 
 build:
   noarch: python
