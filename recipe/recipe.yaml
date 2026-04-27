@@ -1,0 +1,45 @@
+schema_version: 1
+
+context:
+  name: splines
+  version: "0.3.3"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/splines-${{ version }}.tar.gz
+  sha256: 9d9108303f0f3b0e1be8e014c4a724c674a6c0558ab101e14dd04c74505c4eb9
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools >=40.8.0
+    - wheel
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - numpy
+
+tests:
+  - python:
+      imports:
+        - splines
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: Splines in Euclidean Space and Beyond
+  license: MIT
+  license_file: LICENSE
+  homepage: https://splines.readthedocs.io/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
